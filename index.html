@@ -4,6 +4,9 @@
         <title>for zrec</title>
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';">
         <style>
+            .hidden {
+                display: none;
+            }
             .gifpic {
                 display: flex;
                 align-items: center;
@@ -121,73 +124,116 @@
                 margin-left: 50px;
                 margin-right: 50px;
             }
+            .next-button-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .next-button {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: azure;
+                color: black;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0 4px #5c5c5c;
+                transition: background-color 0.3s, box-shadow 0.3s;
+            }
+            .next-button active {
+                background-color: #999999;
+                box-shadow: 0 2px #5c5c5c;
+                transform: translateY(2px);
+            }
         </style>
     </head>
     <body style="background-color: #36454F;">
         <h1 style="text-align: center; color: #ffb6c1;">happy valentines to my one and only baby &lt;3</h1>
 
-        <div class="button-container">
-            <button onclick="createHearts()">click me !</button>
-        </div>
+        <section id="section1">
+            <div class="button-container">
+                <button onclick="createHearts()">click me !</button>
+            </div>
 
-        <div class="gifpic">
-            <img src="https://i.imgur.com/xfTIHmf.gif" alt="gif pic" style="width:100px; height: auto; margin-left: 50px;">
-            <p style="color: #edd182;">
+            <div class="gifpic">
+                <img src="https://i.imgur.com/xfTIHmf.gif" alt="gif pic" style="width:100px; height: auto; margin-left: 50px;">
+                <p style="color: #edd182;">
                 hi baby, i hope you enjoy this little website i made for you &lpar;: i know we can't spend the day together, but i still wanted to give you something special. i love you baby, hehe
+                </p>
+            </div>
+
+
+            <hr>
+
+            <div class="flowerpic" onclick="createFireworks(event)">
+                <p style="color: whitesmoke;">
+                    i wanted to give you a bouquet of pink carnations, your favorite flower. i know i'm not gonna be able to recreate this masterpiece so i've decided to attach it here instead hehe :D i know i only drew one piece, but you deserve a bouquet with a hundred flowers at the very least. soon, huh? <br>
+                    <br> (hey, try pressing anywhere within the flower part of this website &lt;:)
+                </p>
+                <img src="https://i.imgur.com/rhemazn.png" alt="flower" style="width:300px; height: auto; margin-left: 50px;">
+            </div>
+
+            <div class="next-button-container">
+                <button class="next-button" onclick="showNextSection('section1', 'section2')">next</button>
+            </div>
+        </section>
+
+        <section id="section2" class="hidden">
+            <div class="center-img-container">
+                <img src="https://i.imgur.com/xzwchyV.png" alt="pink roblox" class="center-img">
+            </div>
+            <p style="text-align: center; color: #d996be; margin-left: 50px; margin-right: 50px; font-size: 15px;">
+                look at how cute we are ! i think that's how i'm gonna be when we see each other, if you look at me, i'd have to look away. you're just so pretty babyyyy, i'm gonna be so hiya &rpar;: i really enjoy playing roblox with you,
+                especially when i get to hear how you celebrate when you win, or how you tell me we have to switch games cause you died or you lost. i actually can't wait to see you play roblox in real life cause i wanna see how you react in person :P
             </p>
-        </div>
 
-        <hr>
+            <div class="next-button-container">
+                <button class="next-button" onclick="showNextSection('section2', 'section1')">back</button>
+                <button class="next-button" onclick="showNextSection('section2', 'section3')">next</button>
+            </div>
+        </section>
 
-        <div class="flowerpic" onclick="createFireworks(event)">
-            <p style="color: whitesmoke;">
-                i wanted to give you a bouquet of pink carnations, your favorite flower. i know i'm not gonna be able to recreate this masterpiece so i've decided to attach it here instead hehe :D i know i only drew one piece, but you deserve a bouquet with a hundred flowers at the very least. soon, huh? <br>
-                <br> (hey, try pressing anywhere within the flower part of this website &lt;:)
+        <section id="section3" class="hidden">
+            <div class="center-img-container">
+                <img src="https://i.imgur.com/J6ysBxG.png" alt="house roblox" class="center-img">
+            </div>
+            <p style="text-align: center; color: #f5d431; margin-left: 50px; margin-right: 50px; font-size: 15px;">
+                i know it's just a silly roblox photo, but i'm genuinely excited to stand with you outside our house. i know it's too far into the future, but when i look at my future, i see you. i know we haven't been talking for long, but i'm certain that you're the person i want to spend forever with. 
+                this is the first of many valentines that we'll celebrate, my love. get ready to spend the rest of your life going on adventures with me, and in the future, our little family. i can't wait to come up with surprises and then tell you about them but leave you in suspense because i can't keep my 
+                surprises a secret, hehe. i can't wait to see the look on your face and hear how happy you get when you receive the gifts i give you, or the things i do and make for you. i love making you happy, just as you deserve to be, baby.
             </p>
-            <img src="https://i.imgur.com/rhemazn.png" alt="flower" style="width:300px; height: auto; margin-left: 50px;">
-        </div>
 
-        <hr>
+            <div class="next-button-container">
+                <button class="next-button" onclick="showNextSection('section3', 'section2')">back</button>
+                <button class="next-button" onclick="showNextSection('section3', 'section4')">next</button>
+            </div>
+        </section>
 
-        <div class="center-img-container">
-            <img src="https://i.imgur.com/xzwchyV.png" alt="pink roblox" class="center-img">
-        </div>
-        <p style="text-align: center; color: #d996be; margin-left: 50px; margin-right: 50px; font-size: 15px;">
-            look at how cute we are ! i think that's how i'm gonna be when we see each other, if you look at me, i'd have to look away. you're just so pretty babyyyy, i'm gonna be so hiya &rpar;: i really enjoy playing roblox with you,
-            especially when i get to hear how you celebrate when you win, or how you tell me we have to switch games cause you died or you lost. i actually can't wait to see you play roblox in real life cause i wanna see how you react in person :P
-        </p>
+        <section id="section4" class="hidden">
+            <div class="center-img-container">
+                <img src="https://i.imgur.com/lyQQjLP.png" alt="shark" class="center-img">
+            </div>
+            <p style="text-align: center; color: #f26fbe; margin-left: 50px; margin-right: 50px; font-size: 15px; margin-bottom: 30px;">
+                one of the first things i learned about you is that you liked sharks, among other things like strawberries and your favorite colors. this is the first drawing that i made for you. i used to hate drawing, mainly because i suck at it. 
+                but after i drew this for you, i think i started liking drawing. every time i'm not doing anything, i start picking up my ipad and i think of things that i can draw for you. i enjoy writing a lot, so i decided to merge drawing a background and writing a letter for you. 
+                i know you liked that cause you put it on your story, the one with the "Hi Zea Rain" hehe. i know my drawing isn't very good, but i think it's cute enough. i'll get better at drawing so i can make more for you to keep!
+            </p>
+            <p style="text-align: center; color: #f7f00f; margin-left: 50px; margin-right: 50px; font-size: 15px; margin-top: 70px;">
+                i recently learned that you dislike "zea." i think your whole name is very pretty. i love zea. i love rainah. i love you hehehhehehe &lt;3 loving you is a privilege that i am grateful to experience. thank you for allowing me to do so. i'm thankful that 
+                i get to be in your life. ever since you entered my life, it's been sooooo amazing. i wouldn't have it any other way. it's so easy loving you, baby. i know we've had rough patches, but that's nothing compared to the memories we've made over the past two months. 
+                i'm happy and contented with you, with us. i'm glad that i'm the person who gets to have someone as amazing and beautiful as you, as kind and gentle, sweet and loving as you are. whenever i'm tired, i look for you. you lift the heavy things i feel with ease, 
+                just one text from you and i immediately feel so much better. knowing i have someone that loves me for who i am is the best feeling in the world. i don't want this feeling to end, so let's do our best to keep loving each other through all the hard times okay? 
+                you make everything so worth it. i love you so much, sharkiss, mwa mwa mwa! <br>
+            </p>
 
-        <hr>
+            <div class="next-button-container">
+                <button class="next-button" onclick="showNextSection('section4', 'section3')">back</button>
+                <button class="next-button" onclick="showNextSection('section4', 'section5')">next</button>
+            </div>
+        </section>
 
-        <div class="center-img-container">
-            <img src="https://i.imgur.com/J6ysBxG.png" alt="house roblox" class="center-img">
-        </div>
-        <p style="text-align: center; color: #f5d431; margin-left: 50px; margin-right: 50px; font-size: 15px;">
-            i know it's just a silly roblox photo, but i'm genuinely excited to stand with you outside our house. i know it's too far into the future, but when i look at my future, i see you. i know we haven't been talking for long, but i'm certain that you're the person i want to spend forever with. 
-            this is the first of many valentines that we'll celebrate, my love. get ready to spend the rest of your life going on adventures with me, and in the future, our little family. i can't wait to come up with surprises and then tell you about them but leave you in suspense because i can't keep my 
-            surprises a secret, hehe. i can't wait to see the look on your face and hear how happy you get when you receive the gifts i give you, or the things i do and make for you. i love making you happy, just as you deserve to be, baby.
-        </p>
-
-        <hr>
-
-        <div class="center-img-container">
-            <img src="https://i.imgur.com/lyQQjLP.png" alt="shark" class="center-img">
-        </div>
-        <p style="text-align: center; color: #f26fbe; margin-left: 50px; margin-right: 50px; font-size: 15px; margin-bottom: 30px;">
-            one of the first things i learned about you is that you liked sharks, among other things like strawberries and your favorite colors. this is the first drawing that i made for you. i used to hate drawing, mainly because i suck at it. 
-            but after i drew this for you, i think i started liking drawing. every time i'm not doing anything, i start picking up my ipad and i think of things that i can draw for you. i enjoy writing a lot, so i decided to merge drawing a background and writing a letter for you. 
-            i know you liked that cause you put it on your story, the one with the "Hi Zea Rain" hehe. i know my drawing isn't very good, but i think it's cute enough. i'll get better at drawing so i can make more for you to keep!
-        </p>
-        <p style="text-align: center; color: #f7f00f; margin-left: 50px; margin-right: 50px; font-size: 15px; margin-top: 70px;">
-            i recently learned that you dislike "zea." i think your whole name is very pretty. i love zea. i love rainah. i love you hehehhehehe &lt;3 loving you is a privilege that i am grateful to experience. thank you for allowing me to do so. i'm thankful that 
-            i get to be in your life. ever since you entered my life, it's been sooooo amazing. i wouldn't have it any other way. it's so easy loving you, baby. i know we've had rough patches, but that's nothing compared to the memories we've made over the past two months. 
-            i'm happy and contented with you, with us. i'm glad that i'm the person who gets to have someone as amazing and beautiful as you, as kind and gentle, sweet and loving as you are. whenever i'm tired, i look for you. you lift the heavy things i feel with ease, 
-            just one text from you and i immediately feel so much better. knowing i have someone that loves me for who i am is the best feeling in the world. i don't want this feeling to end, so let's do our best to keep loving each other through all the hard times okay? 
-            you make everything so worth it. i love you so much, sharkiss, mwa mwa mwa! <br>
-        </p>
-
-        <hr>
-
+        <section id="section5" class="hidden">
         <p style="text-align: center; color: #f5fefd; margin-left: 50px; margin-right: 50px; font-size: 15px;">
             so i know meron kang mga pinagdadaanan that i don't know about, and i may never know about, but always know i'm by your side. all of the burden that you carry, the pain you feel, you can share with me. you're no longer alone, mahal. i'm always here 
             whether you need a shoulder to cry on, someone to listen to you, or someone to sit in silence with. i'm not just here for the happy times, okay? i'm here for everything. i'll get you all the stawberry ice creams you want, all the shark related plushies or keychains, 
@@ -196,6 +242,11 @@
             <br> <a href="https://open.spotify.com/playlist/5KD9TIfVSKSALbHqU53rKV?si=ad15d5931a5a46c3" target="_blank" style="color: pink;">press me after reading the words below</a> <br> 
             <br> the day of my birth = 30, plus the day of your birth = 21, makes 51. i started listening to some tagalog songs that i think would be fitting, so that link will take you to a playlist that has 51 songs that is a mix of english and tagalog songs. read the description before playing hehe
         </p>
+
+            <div class="next-button-container">
+                <button class="next-button" onclick="showNextSection('section5', 'section4')">back</button>
+            </div>
+        </section>
 
         <script>
             function createHearts() {
@@ -229,6 +280,16 @@
                         firework.remove();
                     }, 600);
                 }
+            }
+            function showNextSection(currentSectionId, nextSectionId) {
+                document.getElementById(currentSectionId).classList.add('hidden');
+                document.getElementById(nextSectionId).classList.remove('hidden');
+                document.getElementById(nextSectionId).scrollIntoView({ behavior: 'smooth'});
+            }
+            function showPreviousSection(currentSectionId, previousSectionId) {
+                document.getElementById(currentSectionId).classList.add('hidden');
+                document.getElementById(previousSectionId).classList.remove('hidden');
+                document.getElementById(previousSectionId).scrollIntoView({ behavior: 'smooth'});
             }
         </script>
 
