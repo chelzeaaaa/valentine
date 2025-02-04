@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>for zrec</title>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';">
         <style>
             .gifpic {
                 display: flex;
@@ -21,6 +22,7 @@
             }
 
             .flowerpic {
+                position: relative;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
@@ -32,10 +34,101 @@
                 font-size: 20px;
                 margin-left: 50px;
             }
+            .heart {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:azure;
+                transform: rotate(45deg);
+                animation: fall 3s linear infinite;
+            }
+            .heart::before,
+            .heart::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: azure;
+                border-radius: 50%;
+            }
+            .heart::before {
+                top: -10px;
+                left: 0;
+            }
+            .heart::after {
+                left: 10px;
+                top: 0;
+            }
+            @keyframes fall {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(500px) rotate(180deg);
+                }
+            }
+            .button-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .button-container button {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #ff69b4;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0 4px #d9534f;
+                transition: background-color 0.3s, box-shadow 0.3s;
+            }
+            .button-container button:active {
+                background-color: #ff4f92;
+                box-shadow: 0 2px #d9534f;
+                transform: translateY(2px);
+            }
+            .firework {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                opacity: 0;
+                animation: explode 0.6s linear forwards;
+            }
+            @keyframes explode {
+                0% {
+                    opacity: 1;
+                    transform: scale(1) translate(0, 0);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(1) translate(calc(var(--tx) * 100px), calc(var(--ty) * 100px));
+                }
+            }
+            .center-img-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            .center-img {
+                width: 850px;
+                height: auto;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
         </style>
     </head>
     <body style="background-color: #36454F;">
         <h1 style="text-align: center; color: #ffb6c1;">happy valentines to my one and only baby &lt;3</h1>
+
+        <div class="button-container">
+            <button onclick="createHearts()">click me !</button>
+        </div>
 
         <div class="gifpic">
             <img src="https://i.imgur.com/xfTIHmf.gif" alt="gif pic" style="width:100px; height: auto; margin-left: 50px;">
@@ -46,25 +139,30 @@
 
         <hr>
 
-        <div class="flowerpic">
+        <div class="flowerpic" onclick="createFireworks(event)">
             <p style="color: whitesmoke;">
-                i wanted to give you a bouquet of pink carnations, your favorite flower. i know i'm not gonna be able to recreate this masterpiece so i've decided to attach it here instead hehe :D i know i only drew one piece, but you deserve a bouquet with a hundred flowers at the very least. soon, huh?
+                i wanted to give you a bouquet of pink carnations, your favorite flower. i know i'm not gonna be able to recreate this masterpiece so i've decided to attach it here instead hehe :D i know i only drew one piece, but you deserve a bouquet with a hundred flowers at the very least. soon, huh? <br>
+                <br> (hey, try pressing anywhere within the flower part of this website &lt;:)
             </p>
             <img src="https://i.imgur.com/rhemazn.png" alt="flower" style="width:300px; height: auto; margin-left: 50px;">
         </div>
 
         <hr>
 
-        <img src="https://i.imgur.com/xzwchyV.png" alt="pink roblox" style="width: 850px; height: auto; margin-left: 50px;  margin-right: 50px;">
-        <p style="text-align: center; color: #d996be; margin-left: 50px; margin-right: 50px; font-size: 12px;">
+        <div class="center-img-container">
+            <img src="https://i.imgur.com/xzwchyV.png" alt="pink roblox" class="center-img">
+        </div>
+        <p style="text-align: center; color: #d996be; margin-left: 50px; margin-right: 50px; font-size: 15px;">
             look at how cute we are ! i think that's how i'm gonna be when we see each other, if you look at me, i'd have to look away. you're just so pretty babyyyy, i'm gonna be so hiya &rpar;: i really enjoy playing roblox with you,
             especially when i get to hear how you celebrate when you win, or how you tell me we have to switch games cause you died or you lost. i actually can't wait to see you play roblox in real life cause i wanna see how you react in person :P
         </p>
 
         <hr>
 
-        <img src="https://i.imgur.com/J6ysBxG.png" alt="house roblox" style="width: 850px; height: auto; margin-left: 50px;  margin-right: 50px;">
-        <p style="text-align: center; color: #f5d431; margin-left: 50px; margin-right: 50px; font-size: 12px;">
+        <div class="center-img-container">
+            <img src="https://i.imgur.com/J6ysBxG.png" alt="house roblox" class="center-img">
+        </div>
+        <p style="text-align: center; color: #f5d431; margin-left: 50px; margin-right: 50px; font-size: 15px;">
             i know it's just a silly roblox photo, but i'm genuinely excited to stand with you outside our house. i know it's too far into the future, but when i look at my future, i see you. i know we haven't been talking for long, but i'm certain that you're the person i want to spend forever with. 
             this is the first of many valentines that we'll celebrate, my love. get ready to spend the rest of your life going on adventures with me, and in the future, our little family. i can't wait to come up with surprises and then tell you about them but leave you in suspense because i can't keep my 
             surprises a secret, hehe. i can't wait to see the look on your face and hear how happy you get when you receive the gifts i give you, or the things i do and make for you. i love making you happy, just as you deserve to be, baby.
@@ -72,19 +170,67 @@
 
         <hr>
 
-        <img src="https://i.imgur.com/lyQQjLP.png" alt="shark" style="width: 850px; height: auto; margin-left: 50px;  margin-right: 50px;">
-        <p style="text-align: center; color: #f26fbe; margin-left: 50px; margin-right: 50px; font-size: 12px; margin-bottom: 30px;">
+        <div class="center-img-container">
+            <img src="https://i.imgur.com/lyQQjLP.png" alt="shark" class="center-img">
+        </div>
+        <p style="text-align: center; color: #f26fbe; margin-left: 50px; margin-right: 50px; font-size: 15px; margin-bottom: 30px;">
             one of the first things i learned about you is that you liked sharks, among other things like strawberries and your favorite colors. this is the first drawing that i made for you. i used to hate drawing, mainly because i suck at it. 
             but after i drew this for you, i think i started liking drawing. every time i'm not doing anything, i start picking up my ipad and i think of things that i can draw for you. i enjoy writing a lot, so i decided to merge drawing a background and writing a letter for you. 
             i know you liked that cause you put it on your story, the one with the "Hi Zea Rain" hehe. i know my drawing isn't very good, but i think it's cute enough. i'll get better at drawing so i can make more for you to keep!
         </p>
-        <p style="text-align: center; color: #f7f00f; margin-left: 50px; margin-right: 50px; font-size: 12px; margin-top: 70px;">
+        <p style="text-align: center; color: #f7f00f; margin-left: 50px; margin-right: 50px; font-size: 15px; margin-top: 70px;">
             i recently learned that you dislike "zea." i think your whole name is very pretty. i love zea. i love rainah. i love you hehehhehehe &lt;3 loving you is a privilege that i am grateful to experience. thank you for allowing me to do so. i'm thankful that 
             i get to be in your life. ever since you entered my life, it's been sooooo amazing. i wouldn't have it any other way. it's so easy loving you, baby. i know we've had rough patches, but that's nothing compared to the memories we've made over the past two months. 
             i'm happy and contented with you, with us. i'm glad that i'm the person who gets to have someone as amazing and beautiful as you, as kind and gentle, sweet and loving as you are. whenever i'm tired, i look for you. you lift the heavy things i feel with ease, 
             just one text from you and i immediately feel so much better. knowing i have someone that loves me for who i am is the best feeling in the world. i don't want this feeling to end, so let's do our best to keep loving each other through all the hard times okay? 
-            you make everything so worth it. i love you so much, sharkiss, mwa mwa mwa!
+            you make everything so worth it. i love you so much, sharkiss, mwa mwa mwa! <br>
         </p>
+
+        <hr>
+
+        <p style="text-align: center; color: #f5fefd; margin-left: 50px; margin-right: 50px; font-size: 15px;">
+            so i know meron kang mga pinagdadaanan that i don't know about, and i may never know about, but always know i'm by your side. all of the burden that you carry, the pain you feel, you can share with me. you're no longer alone, mahal. i'm always here 
+            whether you need a shoulder to cry on, someone to listen to you, or someone to sit in silence with. i'm not just here for the happy times, okay? i'm here for everything. i'll get you all the stawberry ice creams you want, all the shark related plushies or keychains, 
+            everything pink and yellow, my melody things, and everything else you ever want and need. and i know i've told you this before, but i want to say it again. the more i get to know you, the more i fall in love with you. knowing you doesn't lead to loving you less, baby. 
+            no matter what traits or quirks you have, what traumatic experiences you had, your habits or likes and dislikes, i still love you all the same. we'll get through life together, through all the ups and downs, i'll stay by your side. <br>
+            <br> <a href="https://open.spotify.com/playlist/5KD9TIfVSKSALbHqU53rKV?si=ad15d5931a5a46c3" target="_blank" style="color: pink;">press me after reading the words below</a> <br> 
+            <br> the day of my birth = 30, plus the day of your birth = 21, makes 51. i started listening to some tagalog songs that i think would be fitting, so that link will take you to a playlist that has 51 songs that is a mix of english and tagalog songs. read the description before playing hehe
+        </p>
+
+        <script>
+            function createHearts() {
+                for (let i = 0; i < 30; i++) {
+                    let heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = Math.random() * window.innerHeight - 100 + 'px';
+                    document.body.appendChild(heart);
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }
+            }
+            function createFireworks(event) {
+                const numberOfParticles = 20;
+                const { clientX: x, clientY: y } = event;
+                const colors = ['#f5d431', '#f26fbe', '#f5fefd']
+
+                for (let i = 0; i < numberOfParticles; i++) {
+                    const firework = document.createElement('div');
+                    firework.classList.add('firework');
+                    firework.style.setProperty('--tx', Math.random() * 2 - 1);
+                    firework.style.setProperty('--ty', Math.random() * 2 - 1);
+                    firework.style.left = `${x}px`;
+                    firework.style.top = `${y}px`;
+                    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    document.body.appendChild(firework);
+
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 600);
+                }
+            }
+        </script>
 
     </body>
 </html>
